@@ -56,6 +56,8 @@ table {
 	line-height: 1.7em;
 }
 
+
+
 h1 {
 	font-family: "Helvetica Neue";
 	font-size: 24px;
@@ -67,4 +69,12 @@ h1 {
 p {
 	font-weight: 28px;
 	line-height: 34px;
+}
+
+section {
+	margin-right: 50px;
+}
+
+section:last-of-type {
+	margin-right: 0;
 }
