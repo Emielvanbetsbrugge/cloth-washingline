@@ -34,11 +34,12 @@ const init = () => {
   scene.fog = new THREE.Fog( '#000', 500, 10000 );
 
   // camera
-  camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 10000 );
-  camera.position.z = 2000;
-  camera.position.x = 3000;
-  camera.position.y = 10;
+  camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 5000 );
+  camera.position.z = 300;
+  camera.position.x = 1300;
+  camera.position.y = 0;
 
+  camera.lookAt(scene);
   // camera.position.x = 200;
   // camera.position.y = -200;
 
@@ -81,9 +82,6 @@ const init = () => {
     alphaTest: 0.5
   });
 
-
-
-
   // cloth geometry
   clothGeometry = new THREE.ParametricGeometry(clothFunction, cloth.w, cloth.h);
   clothGeometry.dynamic = true;
@@ -95,12 +93,12 @@ const init = () => {
   let fragmentShader = document.getElementById( 'fragmentShaderDepth' ).textContent;
 
   // cloth mesh
+  makePole(800, 0, 0);
 
-
-  const material = makeMaterial('./img/wayout.png');
+  const material = makeMaterial('./img/testimg2.jpg');
   const material2 = makeMaterial('./img/testimg.jpg');
-  const flag = makeCloth(material, -800, -200, 0);
-  const flag2 = makeCloth(material2, 0, -200, 0);
+  const flag = makeCloth(material, -800, 0, 0);
+  const flag2 = makeCloth(material2, 0, 0, 0);
   scene.add(flag);
   scene.add(flag2);
 
@@ -140,10 +138,10 @@ const init = () => {
 	renderer.shadowMap.enabled = true;
 
   // controls
-  var controls = new THREE.OrbitControls( camera, renderer.domElement );
-  controls.maxPolarAngle = Math.PI * 0.5;
-  controls.minDistance = 20;
-  controls.maxDistance = 7500;
+  // var controls = new THREE.OrbitControls( camera, renderer.domElement );
+  // controls.maxPolarAngle = Math.PI * 0.5;
+  // controls.minDistance = 20;
+  // controls.maxDistance = 7500;
 }
 
 const makeCloth = (material, x, y, z) => {
@@ -154,10 +152,10 @@ const makeCloth = (material, x, y, z) => {
 }
 
 const makePole = (x, y, z) => {
-  let geometry = new THREE.CylinderBufferGeometry(10, 10, 100, 32);
+  let geometry = new THREE.CylinderBufferGeometry(5, 5, 70, 32);
   let material = new THREE.MeshBasicMaterial({color: 0xD3D3D3});
   let pole = new THREE.Mesh(geometry, material);
-  pole.position.set(x - 400, y + 180, z);
+  pole.position.set(x - 400, y + 190, z);
   pole.rotation.x = Math.PI / 2;
   pole.rotation.z = Math.PI / 2;
   scene.add(pole);
