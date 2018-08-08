@@ -97,7 +97,7 @@ const init = () => {
 
   const material = makeMaterial('./img/testimg2.jpg');
   const material2 = makeMaterial('./img/testimg.jpg');
-  const flag = makeCloth(material, -800, 0, 0);
+  const flag = makeCloth(material, -50, 0, 0);
   const flag2 = makeCloth(material2, 0, 0, 0);
   scene.add(flag);
   scene.add(flag2);
@@ -138,10 +138,10 @@ const init = () => {
 	renderer.shadowMap.enabled = true;
 
   // controls
-  // var controls = new THREE.OrbitControls( camera, renderer.domElement );
-  // controls.maxPolarAngle = Math.PI * 0.5;
-  // controls.minDistance = 20;
-  // controls.maxDistance = 7500;
+  var controls = new THREE.OrbitControls( camera, renderer.domElement );
+  controls.maxPolarAngle = Math.PI * 0.5;
+  controls.minDistance = 20;
+  controls.maxDistance = 7500;
 }
 
 const makeCloth = (material, x, y, z) => {

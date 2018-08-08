@@ -13,7 +13,7 @@
 var DAMPING = 0.03;
 var DRAG = 1 - DAMPING;
 var MASS = 0.05;
-var restDistance = 40;
+var restDistance = 3;
 
 var xSegs = 15;
 var ySegs = 10;
